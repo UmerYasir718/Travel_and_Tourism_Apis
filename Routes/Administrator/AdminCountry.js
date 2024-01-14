@@ -1,7 +1,9 @@
 // routes/userRoutes.js
 const express = require("express");
+const cors = require("cors");
 const router = express.Router();
 const Countries = require("../../Models/Countries");
+app.use(cors());
 router.post("/home/countries", async (req, res) => {
   try {
     const { countryName, countryPrice } = req.body;
