@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const cors = require("cors");
-app.use(cors());
+router.use(cors());
 const PopularRoutes = require("../../Models/PopularRoutes");
 const cloudinary = require("../../Cloudinary/Cloudinary");
 // Define user-related routes
