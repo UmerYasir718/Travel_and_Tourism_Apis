@@ -15,7 +15,7 @@ app.use(
   })
 );
 const countriesRecord = require("./Models/CountryRecord");
-app.get("/admin/:countryName", async (req, res) => {
+app.get("/find/:countryName", async (req, res) => {
   try {
     const { countryName } = req.params;
     console.log(countryName);
