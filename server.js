@@ -33,40 +33,21 @@ app.use(
 //     res.status(500).json({ error: "Internal Server Error" });
 //   }
 // });
-// const users = [
-//   { email: "admin@example.com", password: "admin123" },
-//   // Add more users as needed
-// ];
-// const generateToken = (user) => {
-//   return jwt.sign({ userId: user.id }, "your-secret-key", { expiresIn: "1h" });
-// };
-// app.post("/api/login", (req, res) => {
-//   const { adminEmail, adminPassword } = req.body;
 
-//   // Check if the user exists in the database
-//   const user = users.find(
-//     (u) => u.email === adminEmail && u.password === adminPassword
-//   );
-
-//   if (user) {
-//     // const token = generateToken(user);
-//     res.json({ success: true, message: "Login successful" });
-//   } else {
-//     res.status(401).json({ success: false, message: "Invalid credentials" });
-//   }
-// });
 const UserCountry = require("./Routes/Users/UserCountry");
 const UserRoutes = require("./Routes/Users/UserRoutes");
 const UserLogin = require("./Routes/Users/UserLogin");
 const UserSignUp = require("./Routes/Users/UserSignUp");
 const AdminCountry = require("./Routes/Administrator/AdminCountry");
 const AdminRoutes = require("./Routes/Administrator/AdminRoutes");
+const AdminLogin = require("./Routes/Administrator/AdminLogin");
 app.use("/", UserCountry);
 app.use("/", UserRoutes);
 app.use("/", UserLogin);
 app.use("/", UserSignUp);
 app.use("/", AdminCountry);
 app.use("/", AdminRoutes);
+app.use("/", AdminLogin);
 app.listen(process.env.PORT, () => {
   console.log(`Server IS RUNNING ON PORT ${process.env.PORT}`);
 });
