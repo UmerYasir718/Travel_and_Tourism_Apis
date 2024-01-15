@@ -17,8 +17,6 @@ router.post("/home/popularRoutes", async (req, res) => {
     }
     console.log(uploadedFile);
     const result = await cloudinary.uploader.upload(uploadedFile.tempFilePath);
-
-    console.log(result.url);
     // Simple validation, ensure all fields are provided
     if (!srcPlace || !desPlace || !routesPrice) {
       return res

@@ -29,7 +29,6 @@ router.put("/home/countries/:id", async (req, res) => {
   const { countryName, countryPrice } = req.body;
 
   const updatedCountry = req.params.id;
-  console.log(updatedCountry, countryName, countryPrice);
   try {
     await Countries.findByIdAndUpdate(
       updatedCountry,
