@@ -1,4 +1,4 @@
-const UserData = require("../../Models/UserData");
+const UserData = require("../Models/UserData");
 
 module.exports.SignUp = async (req, res) => {
   try {

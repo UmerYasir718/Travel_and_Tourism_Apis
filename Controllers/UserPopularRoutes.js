@@ -1,4 +1,4 @@
-const PopularRoutes = require("../../Models/PopularRoutes");
+const PopularRoutes = require("../Models/PopularRoutes");
 module.exports.PopularRoutes = async (req, res) => {
   try {
     const routes = await PopularRoutes.find();
