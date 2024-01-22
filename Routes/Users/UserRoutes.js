@@ -1,15 +1,8 @@
 // routes/userRoutes.js
 const express = require("express");
 const router = express.Router();
-const PopularRoutes = require("../../Models/PopularRoutes");
+const { PopularRoutes } = require("../../Controllers/UserPopularRoutes");
 // Define user-related routes
-router.get("/home/popularRoutes", async (req, res) => {
-  try {
-    const routes = await PopularRoutes.find();
-    res.json(routes);
-  } catch (error) {
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-});
+router.get("/home/popularRoutes", PopularRoutes);
 
 module.exports = router;
