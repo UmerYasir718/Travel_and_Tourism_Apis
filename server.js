@@ -46,6 +46,7 @@ const AdminRoutes = require("./Routes/Administrator/AdminRoutes");
 const AdminLogin = require("./Routes/Administrator/AdminLogin");
 const AdminContact = require("./Routes/Administrator/AdminContact");
 const AdminCarouselPicture = require("./Routes/Administrator/AdminCarouselPicture");
+const AdminDashBoard = require("./Routes/Administrator/AdminDashBoard");
 app.use("/", UserLogin);
 app.use("/", UserSignUp);
 app.use("/", UserCountry);
@@ -58,6 +59,7 @@ app.use("/", AdminRoutes);
 app.use("/", AdminLogin);
 app.use("/", AdminContact);
 app.use("/", AdminCarouselPicture);
+app.use("/", AdminDashBoard);
 app.listen(process.env.PORT, () => {
   console.log(`Server IS RUNNING ON PORT ${process.env.PORT}`);
 });
