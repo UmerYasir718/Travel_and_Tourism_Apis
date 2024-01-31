@@ -1,5 +1,5 @@
 const UserData = require("../Models/UserData");
-module.exports.Login = async (req, res) => {
+module.exports.UserLogin = async (req, res) => {
   try {
     const { userEmail, userPassword } = req.body;
 

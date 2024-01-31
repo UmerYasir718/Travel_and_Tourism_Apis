@@ -1,8 +1,19 @@
-// routes/userRoutes.js
 const express = require("express");
 const router = express.Router();
+const cors = require("cors");
+router.use(cors());
+const { UserLogin } = require("../../Controllers/UserLogin");
+const { UserSignUp } = require("../../Controllers/UserSignUp");
+const { Countries } = require("../../Controllers/UserCountry");
+const { Contact } = require("../../Controllers/UserContact");
+const { UserCarousel } = require("../../Controllers/UserCarousel");
 const { PopularRoutes } = require("../../Controllers/UserPopularRoutes");
-// Define user-related routes
+const { CountryRecord } = require("../../Controllers/UserCountryRecord");
+router.post("/login", UserLogin);
+router.post("/signUp", UserSignUp);
+router.post("/contact", Contact);
+router.get("/home/countries", Countries);
+router.get("/carouselPic", UserCarousel);
+router.get("/find/:countryName", CountryRecord);
 router.get("/home/popularRoutes", PopularRoutes);
-
 module.exports = router;
