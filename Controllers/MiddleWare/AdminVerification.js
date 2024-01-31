@@ -9,19 +9,15 @@ router.use(express.json());
 router.use(cookieParser());
 // Verify token route
 router.get("/verify", (req, res) => {
-  // res.send("Hello world");
-  // console.log("object");
-  // console.log("Cookies:", req.cookies);
-  // const token = req.cookies.token;
-  // console.log(req.headers);
   const authHeader = req.headers["authorization"];
-  // console.log(authHeader);
+  const token = authHeader && authHeader.split(" ")[1];
+  // const authHeader = req.headers["authorization"];
 
-  if (!authHeader) {
-    return res.status(401).json({ success: false, message: "Sign not found" });
+  if (!token) {
+    return res.status(401).json({ success: false, message: "Token not Found" });
   }
 
-  jwt.verify(authHeader, secretKey, (err, decoded) => {
+  jwt.verify(token, secretKey, (err, decoded) => {
     if (err) {
       return res
         .status(401)
@@ -29,7 +25,7 @@ router.get("/verify", (req, res) => {
     }
 
     // Token is valid
-    res.json({ success: true, username: decoded.email });
+    res.json({ success: true, username: decoded.adminEmail });
   });
 });
 module.exports = router;
