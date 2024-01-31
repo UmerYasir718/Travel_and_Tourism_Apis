@@ -9,7 +9,7 @@ router.use(cookieParser());
 const AdminLogin = require("../../Models/AdminLogin");
 router.post("/admin", async (req, res) => {
   const { adminEmail, adminPassword } = req.body;
-  console.log(email, password);
+  // console.log(email, password);
   const existingUser = await AdminLogin.findOne({ adminEmail: adminEmail });
   if (!existingUser) {
     // User with the provided email does not exist, return an error response
