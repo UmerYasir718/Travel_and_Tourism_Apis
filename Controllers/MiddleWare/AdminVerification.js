@@ -4,14 +4,6 @@ const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const router = express.Router();
 const secretKey = process.env.SecretKey;
-
-// router.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // Replace with your client's domain
-//   res.header("Access-Control-Allow-Methods", "GET,HEAD,PUT,PATCH,POST,DELETE");
-//   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-//   res.header("Access-Control-Allow-Credentials", "true");
-//   next();
-// });
 router.use(cors());
 router.use(express.json());
 router.use(cookieParser());
@@ -23,15 +15,17 @@ router.get("/verify", (req, res) => {
   // const token = req.cookies.token;
   // console.log(req.headers);
   const authHeader = req.headers["authorization"];
-  console.log(authHeader);
+  // console.log(authHeader);
 
   if (!authHeader) {
-    return res.status(401).json({ success: false, message: "Token not found" });
+    return res.status(401).json({ success: false, message: "Sign not found" });
   }
 
   jwt.verify(authHeader, secretKey, (err, decoded) => {
     if (err) {
-      return res.status(401).json({ success: false, message: "Invalid token" });
+      return res
+        .status(401)
+        .json({ success: false, message: "TimeOut Please Login Again" });
     }
 
     // Token is valid
